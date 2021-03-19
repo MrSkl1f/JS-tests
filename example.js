@@ -48,9 +48,9 @@ function GetName (info) {
 
 // получить массив номеров магазинов, в которых есть товары в наличии
 function GetShops (info) {
-    let arr = [];
-    let cur = JSON.parse(info);
-    let need = cur["stock"]["stocks"]["34"];
+    let arr = [],
+        cur = JSON.parse(info),
+        need = cur["stock"]["stocks"]["34"];
     for (let key in need) {
         if (need[key] != "0") {
             arr.push(key);
@@ -61,10 +61,10 @@ function GetShops (info) {
 
 // найти максимальное количество товара в регионе, вернуть это количество и номер магазина
 function GetMaxCount(info) {
-    let maxKey = 0;
-    let maxValue = -1;
-    let cur = JSON.parse(info);
-    let need = cur["stock"]["stocks"]["34"];
+    let maxKey = 0,
+        maxValue = -1,
+        cur = JSON.parse(info),
+        need = cur["stock"]["stocks"]["34"];
     for (let key in need) {
         if (Number(need[key]) > maxValue) {
             maxKey = key;
